@@ -1,0 +1,7 @@
+fb_init:
+	firebase init hosting
+fb_deploy:
+	make yarn_build
+	firebase deploy --only hosting
+fb_end:
+	firebase hosting:disable

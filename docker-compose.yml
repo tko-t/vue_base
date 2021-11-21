@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+      args:
+        - "WORKDIR=/${APP_NAME}"
+        - "USER=${USER:-root}"
+        - "USER_ID=${USER_ID:-0}"
+        - "GROUP=${GROUP:-root}"
+        - "GROUP_ID=${GROUP_ID:-0}"
+    user: "${USER_ID:-0}:${GROUP_ID:-0}"
+    container_name: "${APP_NAME}_vue"
+    command: /bin/sh -c "yarn && yarn serve"
+    volumes:
+      - ".:/${APP_NAME}"
+    ports:
+      - "${APP_PORT:-8080}:8080"
