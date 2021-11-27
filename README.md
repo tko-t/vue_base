@@ -8,9 +8,10 @@ $ vi .env
 => 自分の環境に合わせて編集。特にUSERとGROUPとAPP_PORTk
 
 $ docker-compose build
-$ docker-compose run app vue init webpack .
+$ docker-compose run app vue create .
 $ git init
 $ docker-compose up
+" Makefileのcleanから下は不要なので削除します
 ```
 
 or
@@ -18,9 +19,9 @@ or
 ```
 $ mkdir {{APP_NAME}} && $_
 $ git clone git@github.com:tko-t/vue_base.git .
-$ make
-$ make clean
-
+$ GIT_USER=xxx GIT_EMAIL=xxx@yyy.zzz make init
+" git config --local を設定します
+" 不要ならMakefileから該当箇所を削除
 "ユーザー名とアプリケーション名を実行環境から拾って作ります。
 ```
 
